@@ -49,7 +49,8 @@ function renderItems(Item) {
                 $Magazines_Container.appendChild($card_container);
                 break;
             case 'CD':
-                $card_img.src = 'https://image.flaticon.com/icons/svg/390/390138.svg';
+                $card_img.src = 'https://image.flaticon.com/icons/svg/898/898835.svg';
+                // $card_img.src = 'https://image.flaticon.com/icons/svg/390/390138.svg'
                 $CDs_Container.appendChild($card_container);
                 break;
             case 'Thesis':

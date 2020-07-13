@@ -49,19 +49,20 @@ function renderItems(Item: Array<BibliographicMaterial>) {
                 $card_img.src = 'https://image.flaticon.com/icons/svg/3203/3203852.svg'
                 $Books_Container.appendChild($card_container)
                 break;
-                case 'Magazine':
-                    $card_img.src = 'https://image.flaticon.com/icons/svg/3129/3129465.svg'
-                    $Magazines_Container.appendChild($card_container)
-            break;
+            case 'Magazine':
+                $card_img.src = 'https://image.flaticon.com/icons/svg/3129/3129465.svg'
+                $Magazines_Container.appendChild($card_container)
+                break;
             case 'CD':
-                $card_img.src = 'https://image.flaticon.com/icons/svg/390/390138.svg'
+                $card_img.src = 'https://image.flaticon.com/icons/svg/898/898835.svg'
+                // $card_img.src = 'https://image.flaticon.com/icons/svg/390/390138.svg'
                 $CDs_Container.appendChild($card_container)
                 break;
-                case 'Thesis':
+            case 'Thesis':
                     $card_img.src = 'https://image.flaticon.com/icons/svg/3176/3176193.svg'
                     // $card_img.src = 'https://image.flaticon.com/icons/svg/947/947478.svg'
                 $Thesis_Container.appendChild($card_container)
-            break;
+                break;
             default:
                 break;
         }
