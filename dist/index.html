@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous"/>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,400;1,300&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Library</title>
+  <style>
+    body{ font-family: 'Poppins', sans-serif; }
+  </style>
+</head>
+<body>
+  <div>
+    <h2 class="my-4" style="text-align: center; font-weight: 600;">Library</h2>
+    <hr class="mb-4">
+
+    <div class="container" style="width: 1000px; height: 450px;background-color: rgb(154, 253, 220);;">
+      <h2 class="pt-3" style="text-align: center;">User</h2>
+      <hr class="mb-4">
+      <div class="row col-md-12">
+        <!-- Form -->
+        <div class="col-md-8 ml-3">
+          <form class="ml-5 d-flex" id='form' style="flex-direction: column; width: 400px;">
+            <!-- Input name -->
+            <div class="form-group">
+              <label >Name</label>
+              <input type="name" class="form-control" id="input_name" placeholder="Enter name">
+            </div>
+            <!-- Input code -->
+            <div class="form-group">
+              <label >Code</label>
+              <input type="code" class="form-control" id="input_code" placeholder="Code">
+            </div>
+            <!-- Input faculty -->
+            <div class="form-group">
+              <label >Faculty</label>
+                <select class="form-control" id="input_faculty">
+                  <option>FISI</option>
+                  <option>FII</option>
+                </select>
+            </div>
+          </form>
+          <!-- Btn Submit -->
+          <button
+            class="btn btn-success ml-5 mt-4"
+            id='submitBtn'
+            data-toggle="modal"
+            data-target="#ModalLogin"
+          >Enter</button>
+          <button class="btn btn-outline-danger ml-3 mt-4" id='clearBtn'>clear</button>
+        </div>
+        <!-- Card -->
+        <!-- Card Skeleton -->
+        <div class="card d-block" style="width: 14rem;" id="userCard-skeleton">
+          <img class="card-img-top my-3" style="height: 150px;" src="https://image.flaticon.com/icons/svg/2922/2922468.svg">
+          <div class="card-body">
+            <p class="card-text" ><strong>Name:</strong></p>
+            <p class="card-text"><strong>Code:</strong></p>
+            <p class="card-text"><strong>Faculty:</strong></p>
+          </div>
+        </div>
+        <!-- Card User -->
+        <div class="card d-none" style="width: 14rem;" id="userCard">
+          <img class="card-img-top my-3" style="height: 150px;" src="https://image.flaticon.com/icons/svg/2922/2922506.svg">
+          <div class="card-body">
+            <p class="card-text" >
+              <strong>Name:</strong>
+              <span id="user_name"></span>
+            </p>
+            <p class="card-text">
+              <strong>Code:</strong>
+              <span id="user_code"></span>
+            </p>
+            <p class="card-text">
+              <strong>Faculty:</strong>
+              <span id="user_faculty"></span>
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+    <hr>
+    <!-- Modal Login-->
+    <div class="modal fade" id="ModalLogin">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="d-flex justify-content-center">
+            <img id="ModLog_Img" class="my-4 w-90x">
+          </div>
+          <div>
+            <div id="ModLog_Message" class="modal-body text-center"></div>
+          </div>
+          <div class="modal-footer">
+            <button
+              id="ModLog_Btn"
+              class="btn"
+              type="button"
+              class="btn btn-md"
+              data-dismiss="modal"
+              >Ok
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- Modal Items-->
+    <div class="modal fade" id="ModalItems">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="d-flex justify-content-center">
+            <img id="ModItems_Img" class="my-4 w-90x">
+          </div>
+          <div>
+            <div id="ModItems_Message" class="modal-body text-center"></div>
+          </div>
+          <div class="modal-footer">
+            <button
+              id="ModItems_Btn"
+              class="btn"
+              type="button"
+              class="btn btn-md"
+              data-dismiss="modal"
+              >Ok
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div
+      class="container d-flex justify-content-center"
+      style="
+      flex-direction: column;
+      align-items: center;
+      "
+    >
+      <strong>Material Prestado:</strong>
+      <span id='matPrestado'>Ingrese su usuario para prestarse un material bibliografico</span>
+    </div>
+    <!-- Bibliographic Material - Items -->
+    <div class="container">
+      <h3 class="ml-4 mt-5 mb-3" style="font-size: 34px;"><i class="fa fa-book mr-3" aria-hidden="true"></i>Books</h3>
+      <div id="Books_Container">
+      </div>
+    </div>
+    <hr>
+    <div class="container">
+      <h3 class="ml-4 mt-5 mb-3" style="font-size: 34px;"><i class="fa fa-file-text mr-3" aria-hidden="true"></i>Magazines</h3>
+      <div id="Magazines_Container">
+      </div>
+    </div>
+    <hr>
+    <div class="container">
+      <h3 class=ml-4 mt-5 mb-3" style="font-size: 34px;"><i class="fa fa-dot-circle-o mr-3" aria-hidden="true"></i>CDs</h3>
+      <div id="CDs_Container">
+      </div>
+    </div>
+    <hr>
+    <div class="container">
+      <h3 class="ml-4 mt-5 mb-3" style="font-size: 34px;"><i class="fa fa-clipboard  mr-3" aria-hidden="true"></i>Thesis</h3>
+      <div id="Thesis_Container">
+      </div>
+    </div>
+  </div>
+  <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js" integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI" crossorigin="anonymous"></script>
+  <script type="module" src="./index.js"></script>
+</body>
+</html>
