@@ -1,3 +1,3 @@
-# PDSW_Libray
+# PDSW_Library
 
-- Url: https://franzcmarcelo.github.io/PDSW_Libray/dist/index.html
+- Url: https://franzcmarcelo.github.io/PDSW_Library/dist/index.html
