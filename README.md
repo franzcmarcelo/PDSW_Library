@@ -7,6 +7,7 @@ A project of the PDSW course
 ![](https://i.imgur.com/uCY1hN3.png)
 ![](https://i.imgur.com/ovQsr7G.png)
 ![](https://i.imgur.com/7xnheKR.png)
+![](https://i.imgur.com/ovQsr7G.png)
 
 ## UML Class Diagram
-![](https://i.imgur.com/ovQsr7G.png)
+![](https://i.imgur.com/aFQQfuM.png)
