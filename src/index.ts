@@ -59,11 +59,8 @@ let $ModItems_Img = document.querySelector('#ModItems_Img') as HTMLImageElement;
 let $ModItems_Message = document.querySelector('#ModItems_Message') as HTMLButtonElement;
 
 export function fnRequest(this: HTMLButtonElement) {
-    console.log(this);
-    console.log(this.getAttribute('id'));
     let type = this.getAttribute('id')
     if (!userLogin) {
-        console.log('Ingrese con algun usuario');
         $ModItems_Img.src='https://image.flaticon.com/icons/svg/391/391116.svg'
         $ModItems_Message.textContent='Enter you user';
     }else{
@@ -79,9 +76,8 @@ export function fnRequest(this: HTMLButtonElement) {
                 $ModItems_Img.src='https://image.flaticon.com/icons/svg/391/391175.svg'
                 $ModItems_Message.textContent=`Borrowed Material: ${user.borrowedMaterial.title}`;
             }else{
-                console.log(`Tiene un material prestado, devuelvalo primero`);
                 $ModItems_Img.src='https://image.flaticon.com/icons/svg/391/391116.svg'
-                $ModItems_Message.textContent='Tiene un material prestado, devuelvalo primero';
+                $ModItems_Message.textContent=`You have borrowed material, please return it first. Her borrowed material is: ${user.borrowedMaterial?.title}`;
             }
         }
         renderPrestamo()
@@ -91,21 +87,18 @@ export function fnRequest(this: HTMLButtonElement) {
 export function fnReturn(this: HTMLButtonElement) {
     let type = this.getAttribute('id')
     if (!userLogin) {
-        console.log('Ingrese con algun usuario');
         $ModItems_Img.src='https://image.flaticon.com/icons/svg/391/391116.svg'
         $ModItems_Message.textContent='Enter you user';
     }else{
         if (type==='btnReturn') {
             let id = this.getAttribute('identifier')
             if (id === user.borrowedMaterial?.id) {
-                console.log('material devuelto');
                 user.borrowedMaterial = undefined
                 $ModItems_Img.src='https://image.flaticon.com/icons/svg/391/391175.svg'
-                $ModItems_Message.textContent='Material Devuelto!';
+                $ModItems_Message.textContent='Returned Material!';
             }else{
                 $ModItems_Img.src='https://image.flaticon.com/icons/svg/391/391116.svg'
-                console.log('Este material no ha sido prestado a usted');
-                $ModItems_Message.textContent='Este material no ha sido prestado a usted';
+                $ModItems_Message.textContent=`This material is not yours. Her borrowed material is: ${user.borrowedMaterial?.title}`;
             }
         }
         renderPrestamo()

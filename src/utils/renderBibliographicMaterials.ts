@@ -21,9 +21,6 @@ let $Thesis_Container = document.querySelector('#Thesis_Container') as HTMLDivEl
 function custom(mbc:HTMLDivElement) {
     mbc.classList.add('container', 'py-4', 'd-flex', 'justify-content-center')
     mbc.style.height = '450px'
-    mbc.style.backgroundColor = 'rgb(154, 253, 220)'
-    mbc.style.borderRadius = '10px'
-    mbc.style.borderColor = 'red'
 }
 
 function renderItems(Item: Array<BibliographicMaterial>) {
@@ -40,10 +37,12 @@ function renderItems(Item: Array<BibliographicMaterial>) {
             let $btns_container = document.createElement('div') as HTMLDivElement
                 let $card_btn_request = document.createElement('button') as HTMLButtonElement;
                 let $card_btn_return = document.createElement('button') as HTMLButtonElement;
-        $card_container.classList.add('card' ,'mx-2')
+        $card_container.classList.add('card' ,'mx-2', 'shadow-lg')
         $card_container.style.width = '18rem'
-        $card_container.style.borderRadius = '15px'
-        $card_container.style.borderColor = 'red'
+        // FIXME:
+        $card_container.style.borderTopLeftRadius = '10px'
+        $card_container.style.borderTopRightRadius = '80px'
+        $card_container.style.borderColor = 'white'
         switch (i.type) {
             case 'Book':
                 $card_img.src = 'https://image.flaticon.com/icons/svg/3203/3203852.svg'
@@ -85,17 +84,17 @@ function renderItems(Item: Array<BibliographicMaterial>) {
                 $card_content.classList.add('card-text', 'mb-3', 'd-flex', 'justify-content-center')
                 $card_content.style.fontSize = '13px'
                 $card_content.textContent = `${i.sizeContent} ${i.typeContent}`
-                $card_topic.classList.add('px-5', 'd-flex', 'justify-content-center', 'mt-20px')
-                $card_topic.style.backgroundColor= '#ffe0ac'
+                $card_topic.classList.add('d-flex', 'justify-content-center', 'mt-20px')
+                $card_topic.style.backgroundColor= '#d1e7ff'
                 $card_topic.style.borderRadius = '10px'
-                $card_topic.style.color = '#688cc5'
+                $card_topic.style.color = '#2e58ff'
                 $card_topic.textContent = `${i.topic}`
                 $card_details.appendChild($card_title)
                 $card_details.appendChild($card_author)
                 $card_details.appendChild($card_content)
                 $card_details.appendChild($card_topic)
         $btns_container.classList.add('container', 'd-flex', 'px-0')
-            $card_btn_request.classList.add('btn', 'btn-primary', 'd-inline', 'mb-2', 'ml-2', 'mr-1')
+            $card_btn_request.classList.add('btn', 'btn-outline-success', 'd-inline', 'mb-2', 'ml-2', 'mr-1')
             $card_btn_request.style.width = '50%'
             $card_btn_request.textContent = 'Request'
             $card_btn_request.setAttribute('identifier', i.id)
@@ -103,7 +102,7 @@ function renderItems(Item: Array<BibliographicMaterial>) {
             $card_btn_request.setAttribute('data-toggle','modal')
             $card_btn_request.setAttribute('data-target', '#ModalItems')
             $card_btn_request.addEventListener('click', fnRequest)
-            $card_btn_return.classList.add('btn', 'btn-primary', 'd-inline', 'mb-2', 'ml-1', 'mr-2')
+            $card_btn_return.classList.add('btn', 'btn-outline-primary', 'd-inline', 'mb-2', 'ml-1', 'mr-2')
             $card_btn_return.style.width = '50%'
             $card_btn_return.textContent = 'Return'
             $card_btn_return.setAttribute('identifier', i.id)
