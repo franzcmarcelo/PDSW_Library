@@ -1,4 +1,4 @@
-# Library - Laboratory 04
+# Laboratory 04 - Library
 A project of the PDSW course
 
 ## Implementing:
